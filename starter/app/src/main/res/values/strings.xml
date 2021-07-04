@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Political Preparedness</string>
+    <string name="upcoming_elections">Upcoming Elections</string>
+    <string name="saved_elections">Saved elections</string>
+    <string name="upcoming_elections_button">UPCOMING ELECTIONS</string>
+    <string name="error_voter_info">There were a problem loading the data</string>
+    <string name="adress_line_1">Address line 1</string>
+    <string name="address_line_2">Address line 2</string>
+    <string name="city">City</string>
+    <string name="zip">Zip</string>
+    <string name="find_my_representatives">FIND MY REPRESENTATIVES</string>
+    <string name="use_my_location">USE MY LOCATION</string>
+    <string name="political_preparedness">Political Preparedness</string>
+    <string name="representative_picture">Representative picture</string>
+    <string name="www_button">WWW button</string>
+    <string name="my_representatives">My Representatives</string>
+    <string name="no_granted_permission_location">The location permission is necessary to use this feature</string>
+    <string name="location_required_error">You must enabled your location to use this feature</string>
+    <string name="election_information">Election information</string>
+    <string name="representative_search">Representative Search</string>
 
-    <!-- TODO: Add necessary string values -->
-
+    <string-array name="states_array">
+        <item>Alabama</item>
+        <item>Alaska</item>
+        <item>Arizona</item>
+        <item>Arkansas</item>
+        <item>California</item>
+        <item>Colorado</item>
+        <item>Connecticut</item>
+        <item>Delaware</item>
+        <item>Florida</item>
+        <item>Georgia</item>
+        <item>Hawaii</item>
+        <item>Idaho</item>
+        <item>Illinois</item>
+        <item>Indiana</item>
+        <item>Iowa</item>
+        <item>Kansas</item>
+        <item>Kentucky</item>
+        <item>Louisiana</item>
+        <item>Maine</item>
+        <item>Maryland</item>
+        <item>Massachusetts</item>
+        <item>Michigan</item>
+        <item>Minnesota</item>
+        <item>Mississippi</item>
+        <item>Missouri</item>
+        <item>Montana</item>
+        <item>Nebraska</item>
+        <item>Nevada</item>
+        <item>New Hampshire</item>
+        <item>New Jersey</item>
+        <item>New Mexico</item>
+        <item>New York</item>
+        <item>North Carolina</item>
+        <item>North Dakota</item>
+        <item>Ohio</item>
+        <item>Oklahoma</item>
+        <item>Oregon</item>
+        <item>Pennsylvania</item>
+        <item>Rhode Island</item>
+        <item>South Carolina</item>
+        <item>South Dakota</item>
+        <item>Tennessee</item>
+        <item>Texas</item>
+        <item>Utah</item>
+        <item>Vermont</item>
+        <item>Virginia</item>
+        <item>Washington</item>
+        <item>West Virginia</item>
+        <item>Wisconsin</item>
+        <item>Wyoming</item>
+    </string-array>
 </resources>

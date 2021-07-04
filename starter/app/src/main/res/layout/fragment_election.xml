@@ -3,16 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Add node to connect Election ViewModel -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.politicalpreparedness.election.ElectionsViewModel" />
+        
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.android.politicalpreparedness.MainActivity">
 
-        <!-- TODO: Add Upcoming Election Recycler and Header -->
 
-        <!-- TODO: Add Saved Election Recycler and Header -->
+        <TextView
+            android:id="@+id/header_upcoming"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/upcoming_recycler_view"
+            app:layout_constraintVertical_weight="1"
+            android:text="@string/upcoming_elections"
+            style="@style/title_style" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upcoming_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/header_upcoming"
+            app:layout_constraintEnd_toEndOf="@id/header_upcoming"
+            app:layout_constraintTop_toBottomOf="@id/header_upcoming"
+            app:layout_constraintBottom_toTopOf="@id/header_saved"
+            app:layout_constraintVertical_weight="4"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            />
+
+        <TextView
+            android:id="@+id/header_saved"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/header_upcoming"
+            app:layout_constraintEnd_toEndOf="@id/header_upcoming"
+            app:layout_constraintTop_toBottomOf="@id/upcoming_recycler_view"
+            app:layout_constraintBottom_toTopOf="@id/saved_recycler_view"
+            android:text="@string/saved_elections"
+            app:layout_constraintVertical_weight="1"
+            style="@style/title_style"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/saved_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/header_upcoming"
+            app:layout_constraintEnd_toEndOf="@id/header_upcoming"
+            app:layout_constraintTop_toBottomOf="@id/header_saved"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_weight="4"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

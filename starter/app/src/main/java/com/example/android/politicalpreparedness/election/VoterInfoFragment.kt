@@ -1,32 +1,58 @@
 package com.example.android.politicalpreparedness.election
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
+import com.example.android.politicalpreparedness.ElectionApp
+import com.example.android.politicalpreparedness.R
+import com.example.android.politicalpreparedness.databinding.FragmentVoterInfoBinding
+import com.google.android.material.snackbar.Snackbar
 
 class VoterInfoFragment : Fragment() {
+
+    private  val viewModel : VoterInfoViewModel by viewModels { VoterInfoViewModelFactory(requireActivity().application as ElectionApp) }
+    private lateinit var binding : FragmentVoterInfoBinding
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        //TODO: Add ViewModel values and create ViewModel
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_voter_info,container,false)
+        binding.lifecycleOwner = this
+        val args : VoterInfoFragmentArgs by navArgs()
+        binding.viewModel = viewModel
 
-        //TODO: Add binding values
+        viewModel.reset()
+        viewModel.validateData(args.argElectionId,args.argDivision)
 
-        //TODO: Populate voter info -- hide views without provided data.
-        /**
-        Hint: You will need to ensure proper data is provided from previous fragment.
-        */
+        viewModel.areDataValid.observe(viewLifecycleOwner, Observer {
+            if(it) {
+                viewModel.getVoteInfo(args.argElectionId.toLong(),args.argDivision)
+            } else {
+                binding.root.visibility = View.GONE
+                Snackbar.make(binding.root,R.string.error_voter_info,Snackbar.LENGTH_LONG).show()
+            }
+        })
 
-
-        //TODO: Handle loading of URLs
-
-        //TODO: Handle save button UI state
-        //TODO: cont'd Handle save button clicks
-
+        val observer = Observer<String?> { url ->
+            url?.let{
+                displayURL(it)
+            }
+        }
+        viewModel.votingURL.observe(viewLifecycleOwner, observer)
+        viewModel.ballotURL.observe(viewLifecycleOwner, observer)
+        return binding.root
     }
-
-    //TODO: Create method to load URL intents
+    private fun displayURL(url : String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
+    }
 
 }

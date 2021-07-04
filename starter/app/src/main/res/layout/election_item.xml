@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="election"
+            type="com.example.android.politicalpreparedness.network.models.Election" />
+        <variable
+            name="listener"
+            type="com.example.android.politicalpreparedness.election.adapter.ElectionListener" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:onClick="@{() -> listener.onClick(election)}"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_margin="@dimen/margin"
+        >
+
+        <TextView
+            android:id="@+id/title_election"
+            tools:text = "This is a test text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{election.name}"
+            style="@style/header_item_style" />
+
+        <TextView
+            android:id="@+id/date_election"
+            tools:text="Tue Jun 06 00:00:00 EDT 2021"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{election.electionDay.toLocaleString()}"
+            style="@style/detail_item_style" />
+
+    </LinearLayout>
+</layout>
